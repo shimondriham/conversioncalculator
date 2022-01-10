@@ -1,9 +1,13 @@
-import React from 'react';
+import React ,{useContext}from 'react';
+import { context } from '../context/context'
 
-function scoreEX(props){
+function ScoreEX(props){
+    let {total}  = useContext(context)
     return(
-        <div>scoreEX work</div> 
+        <div className='text-center'>
+           {total}
+        </div> 
     )
 }
 
-export default scoreEX
+export default ScoreEX

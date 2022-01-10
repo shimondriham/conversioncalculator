@@ -3,7 +3,7 @@ import AppExchange from './comps/appExchange';
 
 function App() {
   return (
-    <div className="App">
+    <div className="container">
   <AppExchange/>
     </div>
   );
