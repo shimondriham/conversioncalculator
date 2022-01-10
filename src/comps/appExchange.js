@@ -1,21 +1,26 @@
 import React, { useState } from 'react';
 import InputEX from './inputEX';
 import ScoreEX from './scoreEX';
-import { context } from '../context/context'
+// import { totalcontext } from '../context/totalcontext'
+// import { amountcontext } from '../context/amountcontext'
+import { abcontext } from '../context/abcontext';
 
 function AppExchange(props) {
-    let [total,setTotal] = useState(1);
-    // let [amount,setAmount] = useState(100);
+    // let [total, setTotal] = useState(1);
+    // let [amount, setAmount] = useState(100);
+    let [ab, setAb] = useState([ {total:1, amount:100,first:"USD",end:"USD",date:0}]);
+
     return (
-        // {amount:amount,setAmount:setAmount},
-        <context.Provider value={{total:total,setTotal:setTotal}}>
-            <React.Fragment >
-                <InputEX />
-                <ScoreEX />
-            </React.Fragment>
-        </context.Provider>
-
-
+        // <totalcontext.Provider value={{ total: total, setTotal: setTotal }}>
+        //     <amountcontext.Provider value={{ amount: amount, setAmount: setAmount }}>
+                <abcontext.Provider value={{ ab: ab, setAb: setAb }}>
+                    <React.Fragment >
+                        <InputEX />
+                        <ScoreEX ab={ab}/>
+                    </React.Fragment>
+                </abcontext.Provider>
+        //     </amountcontext.Provider>
+        // </totalcontext.Provider>
     )
 }
 

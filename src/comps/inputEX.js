@@ -1,21 +1,24 @@
 import React, { useContext, useRef } from 'react';
-import { context } from '../context/context'
+// import { totalcontext } from '../context/totalcontext';
+// import { amountcontext } from '../context/amountcontext';
+import { abcontext } from '../context/abcontext';
 import axios from "axios";
 
 
 function InputEX(props) {
-    let {total,setTotal}  = useContext(context)
-    // let {amount,setAmount}  = useContext(context)
+    // let {total,setTotal}  = useContext(totalcontext)
+    // let {amount,setAmount}  = useContext(amountcontext)
+    let {ab,setAb}  = useContext(abcontext)
 
     let firstValueRef = useRef();
     let endlValueRef = useRef();
     let amountRef = useRef();
 
     
-    const swithClick = () => { 
+    const switchClick = () => { 
         let temp = firstValueRef
         firstValueRef = endlValueRef
-        endlValueRef  =temp
+        endlValueRef =temp
         doApi();
     }
 
@@ -59,14 +62,23 @@ function InputEX(props) {
             else{
                 console.log(TotalVal); 
             }
-            setTotal(TotalVal*amount_val)
+            // setTotal(TotalVal*amount_val)
             // setAmount(amount_val)
-        
+            let changeObj = {
+                total:TotalVal*amount_val,
+                amount:amount_val,
+                first: first_val,
+                end: end_val,
+                date:Date.now()
+            }
+            setAb([changeObj])   
     }
 
     return (
         <div className='col-md-6 mx-auto '>
-            <h1>Monkeys Exchange:</h1>
+            <div className='text-center'>
+              <h1>Conversion calculator:</h1>
+            </div>
             <h2>Choose coin</h2>
             <select onChange={calcTotal} ref={firstValueRef} className='select-control'>
                 <option value="USDUSD">USD</option>
@@ -75,7 +87,7 @@ function InputEX(props) {
                 <option value="USDBTC">BTC</option>
                 <option value="USDTHB">THB</option>
             </select>
-            <button onClick={swithClick}>swith</button>
+            <button className='btn btn-dark m-2' onClick={switchClick}>swith</button>
             <select onChange={calcTotal} ref={endlValueRef} className='select-control'>
                 <option value="USDUSD">USD</option>
                 <option value="USDILS">ILS</option>
@@ -85,6 +97,7 @@ function InputEX(props) {
             </select>
             <h2>Enter amount:</h2>
             <input onInput={calcTotal} ref={amountRef} type="number" defaultValue="100" className='form-control' />
+            <hr/>
             {/* <h2>you will get: {this.state.total.toFixed(2)} NIS</h2> */}
             {/* <h1>{total}</h1> */}
         </div>
