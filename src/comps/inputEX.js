@@ -11,6 +11,13 @@ function InputEX(props) {
     let endlValueRef = useRef();
     let amountRef = useRef();
 
+    
+    const swithClick = () => { 
+        let temp = firstValueRef
+        firstValueRef = endlValueRef
+        endlValueRef  =temp
+        doApi();
+    }
 
     const calcTotal = () => {
         // let coin_val = coinRef.current.value; 
@@ -68,7 +75,7 @@ function InputEX(props) {
                 <option value="USDBTC">BTC</option>
                 <option value="USDTHB">THB</option>
             </select>
-            <button></button>
+            <button onClick={swithClick}>swith</button>
             <select onChange={calcTotal} ref={endlValueRef} className='select-control'>
                 <option value="USDUSD">USD</option>
                 <option value="USDILS">ILS</option>

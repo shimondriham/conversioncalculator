@@ -5,7 +5,7 @@ function ScoreEX(props){
     let {total}  = useContext(context)
     return(
         <div className='text-center'>
-           {total}
+           {total.toFixed(2)}
         </div> 
     )
 }
