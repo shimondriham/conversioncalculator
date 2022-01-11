@@ -38,39 +38,14 @@ function InputEX(props) {
         let end_val = endlValueRef.current.value;
         let finalEndVal = resp.data.quotes[end_val];
         let amount_val = amountRef.current.value;
-        let TotalVal=99999;
-            if(end_val==first_val){
-                TotalVal =  1 ;
-                console.log(TotalVal+"c");
-            }
-            else if (first_val == "USDUSD") {
-                TotalVal = finalFirstVal * finalEndVal;
-                console.log(TotalVal+"a");
-            }
-            else if(end_val == "USDUSD"){
-                TotalVal =  finalEndVal / finalFirstVal;
-                console.log(TotalVal+"b");
-            }
-            else
-            {
-                if(  finalFirstVal>1){
-                 TotalVal =  finalFirstVal/finalFirstVal * finalFirstVal-finalEndVal;
-                 console.log(TotalVal+"c");
-                }
-                else if(finalFirstVal<1){
-                 TotalVal =  finalEndVal/finalEndVal  /  finalEndVal-finalFirstVal;
-                 console.log(TotalVal+"c");
-                } 
-                else{
-                 console.log(TotalVal); 
-                }
-            }
-          
-           
-            // setTotal(TotalVal*amount_val)
-            // setAmount(amount_val)
+        let TotalVal= 1;
+        let TemptotalVal = 1;
+       
+                TemptotalVal = finalEndVal*amount_val;
+                TotalVal=(1/finalFirstVal)*TemptotalVal;
+
             let changeObj = {
-                total:TotalVal*amount_val,
+                total:TotalVal,
                 amount:amount_val,
                 first: first_val,
                 end: end_val,
