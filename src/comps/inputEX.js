@@ -47,6 +47,7 @@ function InputEX(props) {
         <div className='col-md-6 mx-auto shadow  input'>
             <div className='text-center'>
               <h1>Conversion calculator</h1>
+              <hr/>
             </div>
             <h3>Choose coin</h3>
             <select id='idfirst' onChange={calcTotal} ref={firstValueRef} className='form-control select1'>

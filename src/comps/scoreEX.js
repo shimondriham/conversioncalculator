@@ -15,7 +15,7 @@ function ScoreEX(props){
    
     return(
         <div className='col-md-6 mx-auto shadow text-center score'>
-           <h2>{ab[0].amount} {elseupper}<i className={"fa fa-"+upper} aria-hidden="true"></i> = {ab[0].total.toFixed(2)} {elselower}<i className={"fa fa-"+lower} aria-hidden="true"></i></h2> 
+           <h2>{ab[0].amount}  {elseupper}<i className={"fa fa-"+upper} aria-hidden="true"></i> = {ab[0].total.toFixed(2)}  {elselower}<i className={"fa fa-"+lower} aria-hidden="true"></i></h2> 
            <br/>
            <h3>on the date: <span style={{color:"red"}}>{new Date().toLocaleString() + ""}</span></h3>
         </div> 
