@@ -30,6 +30,7 @@ function InputEX(props) {
         
         let amount_val = amountRef.current.value;
 
+        
         let TotalVal=(1/resp.data.quotes[first_val])*(resp.data.quotes[end_val])*amount_val;      
 
         let changeObj = {
