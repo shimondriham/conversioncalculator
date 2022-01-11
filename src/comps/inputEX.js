@@ -51,17 +51,22 @@ function InputEX(props) {
                 TotalVal =  finalEndVal / finalFirstVal;
                 console.log(TotalVal+"b");
             }
-            // else if(end_val != "USDUSD" && first_val != "USDUSD" && finalFirstVal>1){
-            //     TotalVal =  finalFirstVal/finalFirstVal * finalFirstVal-finalEndVal;
-            //     console.log(TotalVal+"c");
-            // }
-            // else if(end_val != "USDUSD" && first_val != "USDUSD" && finalFirstVal<1){
-            //     TotalVal =  finalEndVal/finalEndVal  /  finalEndVal-finalFirstVal;
-            //     console.log(TotalVal+"c");
-            // }
-            else{
-                console.log(TotalVal); 
+            else
+            {
+                if(  finalFirstVal>1){
+                 TotalVal =  finalFirstVal/finalFirstVal * finalFirstVal-finalEndVal;
+                 console.log(TotalVal+"c");
+                }
+                else if(finalFirstVal<1){
+                 TotalVal =  finalEndVal/finalEndVal  /  finalEndVal-finalFirstVal;
+                 console.log(TotalVal+"c");
+                } 
+                else{
+                 console.log(TotalVal); 
+                }
             }
+          
+           
             // setTotal(TotalVal*amount_val)
             // setAmount(amount_val)
             let changeObj = {
