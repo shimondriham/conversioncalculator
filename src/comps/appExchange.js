@@ -8,7 +8,7 @@ function AppExchange(props) {
 
     return (
                 <arcontext.Provider value={{ ar: ar, setAr: setAr }} >
-                    <React.Fragment >
+                    <React.Fragment>
                         <InputEX />
                         <ScoreEX ar={ar}/>
                     </React.Fragment>
