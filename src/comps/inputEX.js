@@ -1,4 +1,4 @@
-import React, { useContext, useRef } from 'react';
+import React, { useContext, useRef ,setState} from 'react';
 // import { totalcontext } from '../context/totalcontext';
 // import { amountcontext } from '../context/amountcontext';
 import { abcontext } from '../context/abcontext';
@@ -6,19 +6,18 @@ import axios from "axios";
 
 
 function InputEX(props) {
-    // let {total,setTotal}  = useContext(totalcontext)
-    // let {amount,setAmount}  = useContext(amountcontext)
     let {ab,setAb}  = useContext(abcontext)
 
     let firstValueRef = useRef();
     let endlValueRef = useRef();
     let amountRef = useRef();
+ 
 
-    
+
     const switchClick = () => { 
-        let temp = firstValueRef
-        firstValueRef = endlValueRef
-        endlValueRef =temp
+     let temp = firstValueRef.current.value;
+     firstValueRef.current.value = endlValueRef.current.value;
+     endlValueRef.current.value = temp;
         doApi();
     }
     const calcTotal = () => {
@@ -27,9 +26,10 @@ function InputEX(props) {
     const doApi = async () => {
         let url = `http://apilayer.net/api/live?access_key=3c81786f9b3d2e267f40d08af97b97f2&currencies=usd,ils,eur,btc,thb`;
         let resp = await axios.get(url);
-
         let first_val = firstValueRef.current.value;
         let end_val = endlValueRef.current.value;
+        
+        
         let amount_val = amountRef.current.value;
 
         let TotalVal=(1/resp.data.quotes[first_val])*(resp.data.quotes[end_val])*amount_val;      
@@ -49,7 +49,7 @@ function InputEX(props) {
               <h1>Conversion calculator</h1>
             </div>
             <h3>Choose coin</h3>
-            <select onChange={calcTotal} ref={firstValueRef} className='form-control select1'>
+            <select id='idfirst' onChange={calcTotal} ref={firstValueRef} className='form-control select1'>
                 <option value="USDUSD">USD</option>
                 <option value="USDILS">ILS</option>
                 <option value="USDEUR">EURO</option>
