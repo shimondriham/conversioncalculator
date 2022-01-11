@@ -8,7 +8,7 @@ import { abcontext } from '../context/abcontext';
 function AppExchange(props) {
     // let [total, setTotal] = useState(1);
     // let [amount, setAmount] = useState(100);
-    let [ab, setAb] = useState([ {total:100, amount:100,first:"USDUSD",end:"USDUSD",date:"x"}]);
+    let [ab, setAb] = useState([ {total:100, amount:100,first:"USDUSD",end:"USDUSD"}]);
 
     return (
         // <totalcontext.Provider value={{ total: total, setTotal: setTotal }}>

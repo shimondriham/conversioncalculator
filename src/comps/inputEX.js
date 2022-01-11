@@ -21,30 +21,30 @@ function InputEX(props) {
         endlValueRef =temp
         doApi();
     }
-
     const calcTotal = () => {
         doApi();
     }
     const doApi = async () => {
         let url = `http://apilayer.net/api/live?access_key=3c81786f9b3d2e267f40d08af97b97f2&currencies=usd,ils,eur,btc,thb`;
         let resp = await axios.get(url);
+
         let first_val = firstValueRef.current.value;
-        // let finalFirstVal = resp.data.quotes[first_val];
-        // let finalFirstVal = resp.data.quotes[first_val];
         let end_val = endlValueRef.current.value;
-        let finalEndVal = resp.data.quotes[end_val];
         let amount_val = amountRef.current.value;
+
+        let TotalVal=(1/resp.data.quotes[first_val])*(resp.data.quotes[end_val])*amount_val;
+         
+      
+        // let date = td.getFullYear() + '-' + (td.getMonth() + 1) + '-' + td.getDate();
+
         
-        // let TemptotalVal = finalEndVal*amount_val;
-        let TemptotalVal = (resp.data.quotes[end_val])*amount_val;
-        let TotalVal=(1/resp.data.quotes[first_val])*TemptotalVal;
-        // let TotalVal=(1/finalFirstVal)*TemptotalVal;
+        // let newDays = Math.floor(td/(1000 * 60 * 60 * 24));
+
             let changeObj = {
                 total:TotalVal,
                 amount:amount_val,
                 first: first_val,
                 end: end_val,
-                date:Date.now()
             }
             setAb([changeObj])   
     }
