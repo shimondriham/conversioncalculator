@@ -32,15 +32,9 @@ function InputEX(props) {
         let end_val = endlValueRef.current.value;
         let amount_val = amountRef.current.value;
 
-        let TotalVal=(1/resp.data.quotes[first_val])*(resp.data.quotes[end_val])*amount_val;
-         
-      
-        // let date = td.getFullYear() + '-' + (td.getMonth() + 1) + '-' + td.getDate();
+        let TotalVal=(1/resp.data.quotes[first_val])*(resp.data.quotes[end_val])*amount_val;      
 
-        
-        // let newDays = Math.floor(td/(1000 * 60 * 60 * 24));
-
-            let changeObj = {
+        let changeObj = {
                 total:TotalVal,
                 amount:amount_val,
                 first: first_val,
@@ -50,31 +44,28 @@ function InputEX(props) {
     }
 
     return (
-        <div className='col-md-6 mx-auto '>
+        <div className='col-md-6 mx-auto shadow  input'>
             <div className='text-center'>
-              <h1>Conversion calculator:</h1>
+              <h1>Conversion calculator</h1>
             </div>
-            <h2>Choose coin</h2>
-            <select onChange={calcTotal} ref={firstValueRef} className='select-control'>
+            <h3>Choose coin</h3>
+            <select onChange={calcTotal} ref={firstValueRef} className='form-control select1'>
                 <option value="USDUSD">USD</option>
                 <option value="USDILS">ILS</option>
                 <option value="USDEUR">EURO</option>
                 <option value="USDBTC">BTC</option>
                 <option value="USDTHB">THB</option>
             </select>
-            <button className='btn btn-dark m-2' onClick={switchClick}>swith</button>
-            <select onChange={calcTotal} ref={endlValueRef} className='select-control'>
+            <button className="a" onClick={switchClick}><i className="fa fa-arrows-v" aria-hidden="true"></i></button>
+            <select onChange={calcTotal} ref={endlValueRef} className='form-control select2'>
                 <option value="USDUSD">USD</option>
                 <option value="USDILS">ILS</option>
                 <option value="USDEUR">EURO</option>
                 <option value="USDBTC">BTC</option>
                 <option value="USDTHB">THB</option>
             </select>
-            <h2>Enter amount:</h2>
+            <h3>Enter amount:</h3>
             <input onInput={calcTotal} ref={amountRef} type="number" defaultValue="100" className='form-control' />
-            <hr/>
-            {/* <h2>you will get: {this.state.total.toFixed(2)} NIS</h2> */}
-            {/* <h1>{total}</h1> */}
         </div>
     )
 }
