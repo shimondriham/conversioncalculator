@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
 import InputEX from './inputEX';
 import ScoreEX from './scoreEX';
-import { abcontext } from '../context/abcontext';
+import { arcontext } from '../context/arcontext';
 
 function AppExchange(props) {
-    let [ab, setAb] = useState([ {total:100, amount:100,first:"USDUSD",end:"USDUSD"}]);
+    let [ar, setAr] = useState([ {total:100, amount:100,first:"USDUSD",end:"USDUSD"}]);
 
     return (
-                <abcontext.Provider value={{ ab: ab, setAb: setAb }} >
+                <arcontext.Provider value={{ ar: ar, setAr: setAr }} >
                     <React.Fragment >
                         <InputEX />
-                        <ScoreEX ab={ab}/>
+                        <ScoreEX ar={ar}/>
                     </React.Fragment>
-                </abcontext.Provider>
+                </arcontext.Provider>
     )
 }
 

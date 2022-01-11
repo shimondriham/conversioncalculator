@@ -1,12 +1,10 @@
 import React, { useContext, useRef ,setState} from 'react';
-// import { totalcontext } from '../context/totalcontext';
-// import { amountcontext } from '../context/amountcontext';
-import { abcontext } from '../context/abcontext';
+import { arcontext } from '../context/arcontext';
 import axios from "axios";
 
 
 function InputEX(props) {
-    let {ab,setAb}  = useContext(abcontext)
+    let {ar,setAr}  = useContext(arcontext)
 
     let firstValueRef = useRef();
     let endlValueRef = useRef();
@@ -40,7 +38,7 @@ function InputEX(props) {
                 first: first_val,
                 end: end_val,
             }
-            setAb([changeObj])   
+            setAr([changeObj])   
     }
 
     return (
