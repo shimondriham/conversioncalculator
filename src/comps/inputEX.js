@@ -64,13 +64,6 @@ function InputEX(props) {
                 <option value="USDBTC">BTC</option>
                 <option value="USDTHB">THB</option>
             </select>
-            {/* <p>
-            <i class="fa fa-usd" aria-hidden="true"></i>
-            <i class="fa fa-ils" aria-hidden="true"></i>  
-            <i class="fa fa-euro" aria-hidden="true"></i>  
-            <i class="fa fa-btc" aria-hidden="true"></i>  
-            <i class="fa fa-thb" aria-hidden="true"></i>  
-            </p> */}
             <h3>Enter amount:</h3>
             <input onInput={calcTotal} ref={amountRef} type="number" defaultValue="100" className='form-control' />
         </div>
