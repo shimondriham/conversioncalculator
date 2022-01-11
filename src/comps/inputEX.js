@@ -23,27 +23,22 @@ function InputEX(props) {
     }
 
     const calcTotal = () => {
-        // let coin_val = coinRef.current.value; 
-        // let amount_val = amountRef.current.value;
-        // setTotal({total:coin_val * amount_val});
         doApi();
-  
     }
     const doApi = async () => {
         let url = `http://apilayer.net/api/live?access_key=3c81786f9b3d2e267f40d08af97b97f2&currencies=usd,ils,eur,btc,thb`;
         let resp = await axios.get(url);
-        // console.log(resp.data)
         let first_val = firstValueRef.current.value;
-        let finalFirstVal = resp.data.quotes[first_val];
+        // let finalFirstVal = resp.data.quotes[first_val];
+        // let finalFirstVal = resp.data.quotes[first_val];
         let end_val = endlValueRef.current.value;
         let finalEndVal = resp.data.quotes[end_val];
         let amount_val = amountRef.current.value;
-        let TotalVal= 1;
-        let TemptotalVal = 1;
-       
-                TemptotalVal = finalEndVal*amount_val;
-                TotalVal=(1/finalFirstVal)*TemptotalVal;
-
+        
+        // let TemptotalVal = finalEndVal*amount_val;
+        let TemptotalVal = (resp.data.quotes[end_val])*amount_val;
+        let TotalVal=(1/resp.data.quotes[first_val])*TemptotalVal;
+        // let TotalVal=(1/finalFirstVal)*TemptotalVal;
             let changeObj = {
                 total:TotalVal,
                 amount:amount_val,

@@ -10,9 +10,9 @@ function ScoreEX(props){
     let {ab,setAb}  = useContext(abcontext)
     return(
         <div className='text-center'>
-           {ab[0].amount}-{ab[0].first} = {ab[0].total.toFixed(2)}-{ab[0].end} 
+           {ab[0].amount}-{ab[0].first.substr(3, 6)} = {ab[0].total.toFixed(2)}-{ab[0].end.substr(3, 6)} 
            <br/>
-                      date:{ab[0].date}
+           date:{ab[0].date}
         </div> 
     )
 }
