@@ -22,7 +22,7 @@ function InputEX(props) {
         doApi();
     }
     const doApi = async () => {
-        let url = `http://apilayer.net/api/live?access_key=3c81786f9b3d2e267f40d08af97b97f2&currencies=usd,ils,eur,btc,thb`;
+        let url = `https://freecurrencyapi.net/api/v2/latest?apikey=f2dce500-45f0-11ec-9860-7954a32a920b`;
         let resp = await axios.get(url);
         let first_val = firstValueRef.current.value;
         let end_val = endlValueRef.current.value;
@@ -30,7 +30,7 @@ function InputEX(props) {
         
         let amount_val = amountRef.current.value;
 
-        
+
         let TotalVal=(1/resp.data.quotes[first_val])*(resp.data.quotes[end_val])*amount_val;      
 
         let changeObj = {
