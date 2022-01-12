@@ -22,16 +22,33 @@ function InputEX(props) {
         doApi();
     }
     const doApi = async () => {
+        let first_val =firstValueRef.current.value; 
+        // let first_val= afirst_val.substr(3, 6);
+        // let first_val=tempfirst_val.slice(0,1)+tempfirst_val.slice(1,tempfirst_val.length).toLowerCase();
+
+        let end_val = endlValueRef.current.value; 
+        // let end_val= aend_val.substr(3, 6);
+        // let end_val=tempend_val.slice(0,1)+tempend_val.slice(1,tempend_val.length).toLowerCase();
+    
         let url = `https://freecurrencyapi.net/api/v2/latest?apikey=f2dce500-45f0-11ec-9860-7954a32a920b`;
         let resp = await axios.get(url);
-        let first_val = firstValueRef.current.value;
-        let end_val = endlValueRef.current.value;
-        
-        
+        console.log(resp.data.data);
         let amount_val = amountRef.current.value;
+        let first = 1 ;
+        if(first_val!="USD"){
+          first = resp.data.data[first_val];   
+        }
+        let end = 1 ;
+        if(first_val != "USD"){
+          end = resp.data.data[end_val];   
+        }
+       console.log(first_val)
+       console.log(first)
+       console.log(end_val)
+       console.log(end)
+       console.log(amount_val)
 
-
-        let TotalVal=(1/resp.data.quotes[first_val])*(resp.data.quotes[end_val])*amount_val;      
+        let TotalVal=(1/first)*(end)*amount_val;      
 
         let changeObj = {
                 total:TotalVal,
@@ -50,19 +67,19 @@ function InputEX(props) {
             </div>
             <h3>Choose coin</h3>
             <select id='idfirst' onChange={calcTotal} ref={firstValueRef} className='form-control select1'>
-                <option value="USDUSD">USD</option>
-                <option value="USDILS">ILS</option>
-                <option value="USDEUR">EURO</option>
-                <option value="USDBTC">BTC</option>
-                <option value="USDTHB">THB</option>
+                <option value="USD">USD</option>
+                <option value="ILS">ILS</option>
+                <option value="EUR">EURO</option>
+                <option value="BTC">BTC</option>
+                <option value="THB">THB</option>
             </select>
             <button className="a" onClick={switchClick}></button>
             <select onChange={calcTotal} ref={endlValueRef} className='form-control select2'>
-                <option value="USDUSD">USD</option>
-                <option value="USDILS">ILS</option>
-                <option value="USDEUR">EURO</option>
-                <option value="USDBTC">BTC</option>
-                <option value="USDTHB">THB</option>
+                <option value="USD">USD</option>
+                <option value="ILS">ILS</option>
+                <option value="EUR">EURO</option>
+                <option value="BTC">BTC</option>
+                <option value="THB">THB</option>
             </select>
             <h3>Enter amount:</h3>
             <input onInput={calcTotal} ref={amountRef} type="number" defaultValue="100" className='form-control' />
