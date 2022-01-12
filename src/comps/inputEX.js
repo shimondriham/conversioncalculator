@@ -39,7 +39,7 @@ function InputEX(props) {
           first = resp.data.data[first_val];   
         }
         let end = 1 ;
-        if(first_val != "USD"){
+        if(end_val != "USD"){
           end = resp.data.data[end_val];   
         }
        console.log(first_val)
