@@ -67,19 +67,23 @@ function InputEX(props) {
             </div>
             <h3>Choose coin</h3>
             <select id='idfirst' onChange={calcTotal} ref={firstValueRef} className='form-control select1'>
-                <option value="USD">USD</option>
-                <option value="ILS">ILS</option>
+                <option value="USD">USD U.S. Dollar</option>
+                <option value="ILS">ILS New Shekel</option>
                 <option value="EUR">EURO</option>
-                <option value="BTC">BTC</option>
-                <option value="THB">THB</option>
+                <option value="BTC">BTC Bitcoin</option>
+                <option value="CAD">CAD Canadian Dollar</option>
+                <option value="GBP">GBP Pound</option>
+                <option value="THB">THB Thai Butt</option>
             </select>
             <button className="a" onClick={switchClick}></button>
             <select onChange={calcTotal} ref={endlValueRef} className='form-control select2'>
-                <option value="USD">USD</option>
-                <option value="ILS">ILS</option>
+               <option value="USD">USD U.S. Dollar</option>
+                <option value="ILS">ILS New Shekel</option>
                 <option value="EUR">EURO</option>
-                <option value="BTC">BTC</option>
-                <option value="THB">THB</option>
+                <option value="BTC">BTC Bitcoin</option>
+                <option value="CAD">CAD Canadian Dollar</option>
+                <option value="GBP">GBP Pound</option>
+                <option value="THB">THB Thai Butt</option>
             </select>
             <h3>Enter amount:</h3>
             <input onInput={calcTotal} ref={amountRef} type="number" defaultValue="100" className='form-control' />

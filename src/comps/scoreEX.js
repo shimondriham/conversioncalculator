@@ -12,8 +12,9 @@ function ScoreEX(props){
     let lower = end.toLowerCase();
     let elseupper=""
     let elselower=""
-    if(upper == "thb"){elseupper="THB"}else{elseupper=""}
-    if(lower == "thb"){elselower="THB"}else{elselower=""}
+    if(upper == "thb"){elseupper="THB"}else if(upper == "cad"){elseupper="CAD"} else{elseupper=""}
+    if(lower == "thb"){elselower="THB"}else if(lower == "cad"){elselower="CAD"} else{elselower=""}
+
    
     return(
         <div className='col-md-6 mx-auto shadow text-center score'>
