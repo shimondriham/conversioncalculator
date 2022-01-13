@@ -18,18 +18,13 @@ function InputEX(props) {
      endlValueRef.current.value = temp;
         doApi();
     }
+
     const calcTotal = () => {
         doApi();
     }
     const doApi = async () => {
         let first_val =firstValueRef.current.value; 
-        // let first_val= afirst_val.substr(3, 6);
-        // let first_val=tempfirst_val.slice(0,1)+tempfirst_val.slice(1,tempfirst_val.length).toLowerCase();
-
         let end_val = endlValueRef.current.value; 
-        // let end_val= aend_val.substr(3, 6);
-        // let end_val=tempend_val.slice(0,1)+tempend_val.slice(1,tempend_val.length).toLowerCase();
-    
         let url = `https://freecurrencyapi.net/api/v2/latest?apikey=f2dce500-45f0-11ec-9860-7954a32a920b`;
         let resp = await axios.get(url);
         console.log(resp.data.data);
@@ -60,7 +55,7 @@ function InputEX(props) {
     }
 
     return (
-        <div className='col-md-6 mx-auto shadow  input'>
+        <div className='col-md-6 mx-auto shadow input'>
             <div className='text-center'>
               <h1>Conversion calculator</h1>
               <hr/>
@@ -88,6 +83,7 @@ function InputEX(props) {
             <h3>Enter amount:</h3>
             <input onInput={calcTotal} ref={amountRef} type="number" defaultValue="100" className='form-control' />
         </div>
+        
     )
 }
 
