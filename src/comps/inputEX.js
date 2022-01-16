@@ -37,11 +37,11 @@ function InputEX(props) {
         if(end_val != "USD"){
           end = resp.data.data[end_val];   
         }
-       console.log(first_val)
-       console.log(first)
-       console.log(end_val)
-       console.log(end)
-       console.log(amount_val)
+    //    console.log(first_val)
+    //    console.log(first)
+    //    console.log(end_val)
+    //    console.log(end)
+    //    console.log(amount_val)
 
         let TotalVal=(1/first)*(end)*amount_val;      
 
