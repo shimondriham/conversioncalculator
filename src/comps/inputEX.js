@@ -29,19 +29,19 @@ function InputEX(props) {
         let resp = await axios.get(url);
         console.log(resp.data.data);
         let amount_val = amountRef.current.value;
-        let first = 1 ;
-        if(first_val!="USD"){
-          first = resp.data.data[first_val];   
+        let first = resp.data.data[first_val];
+        if(first_val=="USD"){
+          first = 1;   
+        }else if (first_val=="BTC"){
+            first /= 1000;
         }
-        let end = 1 ;
-        if(end_val != "USD"){
-          end = resp.data.data[end_val];   
+        let end = resp.data.data[end_val]; 
+        if(end_val == "USD"){
+           end = 1 ;
+        }else if(end_val != "USD"){
+         end /= 1000 ; 
         }
-    //    console.log(first_val)
-    //    console.log(first)
-    //    console.log(end_val)
-    //    console.log(end)
-    //    console.log(amount_val)
+
 
         let TotalVal=(1/first)*(end)*amount_val;      
 
