@@ -1,6 +1,7 @@
-import React, { useContext, useRef ,setState} from 'react';
+import React, { useContext, useRef , useEffect} from 'react';
 import { arcontext } from '../context/arcontext';
 import axios from "axios";
+
 
 
 function InputEX(props) {
@@ -10,6 +11,9 @@ function InputEX(props) {
     let endlValueRef = useRef();
     let amountRef = useRef();
  
+    useEffect(() => { 
+        doApi() ;
+     }, [])
 
 
     const switchClick = () => { 
@@ -29,19 +33,27 @@ function InputEX(props) {
         let resp = await axios.get(url);
         console.log(resp.data.data);
         let amount_val = amountRef.current.value;
-        let first = 1 ;
-        if(first_val!="USD"){
-          first = resp.data.data[first_val];   
+        let  first = resp.data.data[first_val];
+        if(first_val=="USD"){
+          first = 1;   
         }
-        let end = 1 ;
-        if(end_val != "USD"){
-          end = resp.data.data[end_val];   
+        // else if (first_val=="BTC"){
+        //     first /= 1000;
+        // }
+        // else{
+        //     first = resp.data.data[first_val];
+        // }
+        let end =  resp.data.data[end_val]; 
+        if(end_val == "USD"){
+           end = 1 ;
         }
-    //    console.log(first_val)
-    //    console.log(first)
-    //    console.log(end_val)
-    //    console.log(end)
-    //    console.log(amount_val)
+        // else if(end_val != "USD"){
+        //  end /= 1000 ; 
+        // }
+        // else{
+        //     end =  resp.data.data[end_val]; 
+        // }
+
 
         let TotalVal=(1/first)*(end)*amount_val;      
 
@@ -61,21 +73,19 @@ function InputEX(props) {
               <hr/>
             </div>
             <h3>Choose coin</h3>
-            <select id='idfirst' onChange={calcTotal} ref={firstValueRef} className='form-control select1'>
-                <option value="USD">USD U.S. Dollar</option>
+            <select id='idfirst' onChange={calcTotal} ref={firstValueRef} className='form-select  select1'>                
                 <option value="ILS">ILS New Shekel</option>
+                 <option value="USD">USD U.S. Dollar</option>
                 <option value="EUR">EURO</option>
-                <option value="BTC">BTC Bitcoin</option>
                 <option value="CAD">CAD Canadian Dollar</option>
                 <option value="GBP">GBP Pound</option>
                 <option value="THB">THB Thai Butt</option>
             </select>
             <button className="a" onClick={switchClick}></button>
-            <select onChange={calcTotal} ref={endlValueRef} className='form-control select2'>
+            <select onChange={calcTotal} ref={endlValueRef} className='form-select  select2'>
                <option value="USD">USD U.S. Dollar</option>
                 <option value="ILS">ILS New Shekel</option>
                 <option value="EUR">EURO</option>
-                <option value="BTC">BTC Bitcoin</option>
                 <option value="CAD">CAD Canadian Dollar</option>
                 <option value="GBP">GBP Pound</option>
                 <option value="THB">THB Thai Butt</option>
