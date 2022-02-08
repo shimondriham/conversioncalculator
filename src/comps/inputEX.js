@@ -1,6 +1,7 @@
-import React, { useContext, useRef ,setState} from 'react';
+import React, { useContext, useRef , useEffect} from 'react';
 import { arcontext } from '../context/arcontext';
 import axios from "axios";
+
 
 
 function InputEX(props) {
@@ -10,6 +11,9 @@ function InputEX(props) {
     let endlValueRef = useRef();
     let amountRef = useRef();
  
+    useEffect(() => { 
+        doApi() ;
+     }, [])
 
 
     const switchClick = () => { 
@@ -70,8 +74,8 @@ function InputEX(props) {
             </div>
             <h3>Choose coin</h3>
             <select id='idfirst' onChange={calcTotal} ref={firstValueRef} className='form-select  select1'>
+                 <option value="ILS">ILS New Shekel</option>
                 <option value="USD">USD U.S. Dollar</option>
-                <option value="ILS">ILS New Shekel</option>
                 <option value="EUR">EURO</option>
                 <option value="CAD">CAD Canadian Dollar</option>
                 <option value="GBP">GBP Pound</option>
