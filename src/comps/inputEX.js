@@ -73,9 +73,9 @@ function InputEX(props) {
               <hr/>
             </div>
             <h3>Choose coin</h3>
-            <select id='idfirst' onChange={calcTotal} ref={firstValueRef} className='form-select  select1'>
-                 <option value="ILS">ILS New Shekel</option>
-                <option value="USD">USD U.S. Dollar</option>
+            <select id='idfirst' onChange={calcTotal} ref={firstValueRef} className='form-select  select1'>                
+                <option value="ILS">ILS New Shekel</option>
+                 <option value="USD">USD U.S. Dollar</option>
                 <option value="EUR">EURO</option>
                 <option value="CAD">CAD Canadian Dollar</option>
                 <option value="GBP">GBP Pound</option>
