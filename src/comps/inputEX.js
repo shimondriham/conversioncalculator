@@ -26,6 +26,7 @@ function InputEX(props) {
     const calcTotal = () => {
         doApi();
     }
+
     const doApi = async () => {
         let first_val =firstValueRef.current.value; 
         let end_val = endlValueRef.current.value; 
@@ -53,8 +54,6 @@ function InputEX(props) {
         // else{
         //     end =  resp.data.data[end_val]; 
         // }
-
-
         let TotalVal=(1/first)*(end)*amount_val;      
 
         let changeObj = {
@@ -92,13 +91,10 @@ function InputEX(props) {
             </select>
             <h3>Enter amount:</h3>
             <input onInput={calcTotal} ref={amountRef} type="number" defaultValue="100" className='form-control' />
-           
-
-
-
         </div>
         
     )
 }
+
 
 export default InputEX
