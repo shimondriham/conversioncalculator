@@ -92,6 +92,10 @@ function InputEX(props) {
             </select>
             <h3>Enter amount:</h3>
             <input onInput={calcTotal} ref={amountRef} type="number" defaultValue="100" className='form-control' />
+           
+
+
+
         </div>
         
     )
