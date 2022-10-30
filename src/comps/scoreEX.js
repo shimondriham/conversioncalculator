@@ -4,10 +4,8 @@ import { arcontext } from '../context/arcontext';
 
 function ScoreEX(props){
     let {ar,setAr}  = useContext(arcontext)
-    // let first =ar[0].first.substr(3, 6);
     let first =ar[0].first;
     let upper= first.toLowerCase();
-    // let end =ar[0].end.substr(3, 6);
     let end =ar[0].end;
     let lower = end.toLowerCase();
     let elseupper=""
